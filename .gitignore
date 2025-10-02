@@ -1,0 +1,4 @@
+ssd
+*.o
+common.h.gch
+.vscode
