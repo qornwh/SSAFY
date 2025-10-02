@@ -39,7 +39,7 @@ void write_ssd(uint32_t idx, uint32_t val)
 
     uint8_t cash[50];
     uint32_t curIdx = 0;
-    while (fgets(cash, 50, fp) != NULL)
+    while (1)
     {
         if (idx - 1 == curIdx)
         {
@@ -47,6 +47,8 @@ void write_ssd(uint32_t idx, uint32_t val)
             break;
         }
         ++curIdx;
+        if (fgets(cash, 50, fp) == NULL)
+            break;
     }
 
     fclose(fp);
@@ -82,30 +84,6 @@ void task(int argc, void *argv[])
     {
         
     }
-
-    // if (str[4] == 'W' && write_check(&str[6]))
-    // {
-
-    //     uint32_t idx = -1;
-    //     uint32_t val = -1;
-    //     sscanf(str, "%d 0x%d", &idx, &val);
-
-    //     if (idx > 0 || val >= 0)
-    //     {
-    //         write_ssd(idx, val);
-    //     }
-    //     else
-    //     {
-    //         printf("%s <= not command", str);
-    //     }
-    // }
-    // else if (str[1] == 'R')
-    // {
-    // }
-    // else
-    // {
-    //     printf("%s <= not command", str);
-    // }
 }
 
 void work()
