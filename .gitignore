@@ -1,4 +1,7 @@
 ssd
+testShell
 *.o
-common.h.gch
+*.gch
+*.out
 .vscode
+core.*
