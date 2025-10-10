@@ -211,6 +211,7 @@ void work()
         else if (bytes == 0)
         {
             printf("sender pipe close\n");
+            // break 풀면 프로그램 종료
             break;
         }
         else

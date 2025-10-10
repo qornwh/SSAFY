@@ -9,12 +9,12 @@ int32_t check(FILE *fp, int32_t idx);
 
 int fd;
 
-int main(int argc, void* argv[])
+int main(int argc, void *argv[])
 {
     char buffer[50];
 
     fd = open(PIPE_NAME, O_WRONLY);
-    if (fd == -1) 
+    if (fd == -1)
     {
         printf("pipe open failed\n");
         return 0;
@@ -66,6 +66,7 @@ int main(int argc, void* argv[])
 
 void send_write(int32_t idx, uint32_t value)
 {
+    usleep(30000);
     char buffer[50];
     sprintf(buffer, "ssd W %d 0x%X", idx, value);
 
@@ -76,6 +77,7 @@ void send_write(int32_t idx, uint32_t value)
 }
 void send_read(int32_t idx)
 {
+    usleep(30000);
     char buffer[50];
     sprintf(buffer, "ssd R %d", idx);
 
@@ -84,6 +86,7 @@ void send_read(int32_t idx)
         printf("pipe read falied\n");
     }
 
+    usleep(20000);
     FILE *fp = fopen(RESULT, "r+");
     if (check(fp, idx) == 0)
     {

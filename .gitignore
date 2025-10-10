@@ -5,3 +5,4 @@ testShell
 *.out
 .vscode
 core.*
+*.txt
