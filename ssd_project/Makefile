@@ -9,4 +9,4 @@ testShell : common.h testShell.c
 	gcc common.h testShell.c -o testShell.out
 
 clean :
-	rm ssd.o ssd *.h.gch core.*
+	rm ssd.o ssd *.h.gch core.* *.txt *.out
